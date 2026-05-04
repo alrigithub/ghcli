@@ -1,0 +1,129 @@
+{
+  "transactionId": "parametric-cube-graph-001",
+  "solveAfter": true,
+  "debugAfter": [
+    "parametric_cube"
+  ],
+  "sliders": [
+    {
+      "node_id": "SLIDER_cube_size",
+      "nickname": "Cube Size",
+      "min": 1,
+      "max": 20,
+      "value": 6,
+      "position": {
+        "x": 60,
+        "y": 80
+      }
+    },
+    {
+      "node_id": "SLIDER_cube_count",
+      "nickname": "Count",
+      "min": 1,
+      "max": 12,
+      "value": 3,
+      "position": {
+        "x": 60,
+        "y": 140
+      }
+    },
+    {
+      "node_id": "SLIDER_cube_gap",
+      "nickname": "Gap",
+      "min": 0,
+      "max": 10,
+      "value": 2,
+      "position": {
+        "x": 60,
+        "y": 200
+      }
+    }
+  ],
+  "pythonNodes": [
+    {
+      "node_id": "parametric_cube",
+      "nickname": "Parametric Cube",
+      "runtime": "cpython3",
+      "file_path": "C:/Users/ritiv/Desktop/gh-cli/cli-ghpython2/samples/parametric-cube/script.py",
+      "position": {
+        "x": 360,
+        "y": 110
+      },
+      "inputs": [
+        {
+          "name": "size",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "count",
+          "typeName": "int",
+          "access": "item"
+        },
+        {
+          "name": "gap",
+          "typeName": "float",
+          "access": "item"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cubes",
+          "typeName": "Brep",
+          "access": "list"
+        },
+        {
+          "name": "centers",
+          "typeName": "Point3d",
+          "access": "list"
+        },
+        {
+          "name": "edges",
+          "typeName": "Curve",
+          "access": "list"
+        },
+        {
+          "name": "dbg",
+          "typeName": "string",
+          "access": "item"
+        }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "node_id": "PANEL_cube_debug",
+      "nickname": "Cube Debug",
+      "position": {
+        "x": 720,
+        "y": 220
+      }
+    }
+  ],
+  "wires": [
+    {
+      "source_node_id": "SLIDER_cube_size",
+      "source_port": "0",
+      "target_node_id": "parametric_cube",
+      "target_port": "size"
+    },
+    {
+      "source_node_id": "SLIDER_cube_count",
+      "source_port": "0",
+      "target_node_id": "parametric_cube",
+      "target_port": "count"
+    },
+    {
+      "source_node_id": "SLIDER_cube_gap",
+      "source_port": "0",
+      "target_node_id": "parametric_cube",
+      "target_port": "gap"
+    },
+    {
+      "source_node_id": "parametric_cube",
+      "source_port": "dbg",
+      "target_node_id": "PANEL_cube_debug",
+      "target_port": "0"
+    }
+  ]
+}

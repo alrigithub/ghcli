@@ -1,0 +1,52 @@
+{
+  "transactionId": "basic-graph-001",
+  "solveAfter": true,
+  "debugAfter": ["example_node"],
+  "sliders": [
+    {
+      "node_id": "SLIDER_count",
+      "nickname": "Count",
+      "min": 1,
+      "max": 20,
+      "value": 5,
+      "position": { "x": 60, "y": 100 }
+    }
+  ],
+  "pythonNodes": [
+    {
+      "node_id": "example_node",
+      "nickname": "Example Node",
+      "runtime": "cpython3",
+      "file_path": "C:/absolute/path/to/templates/gh_python_node.py",
+      "position": { "x": 340, "y": 100 },
+      "inputs": [
+        { "name": "count", "typeName": "int", "access": "item" }
+      ],
+      "outputs": [
+        { "name": "result", "typeName": "Generic Data", "access": "list" },
+        { "name": "dbg", "typeName": "string", "access": "item" }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "node_id": "PANEL_example_debug",
+      "nickname": "Debug",
+      "position": { "x": 700, "y": 160 }
+    }
+  ],
+  "wires": [
+    {
+      "source_node_id": "SLIDER_count",
+      "source_port": "0",
+      "target_node_id": "example_node",
+      "target_port": "count"
+    },
+    {
+      "source_node_id": "example_node",
+      "source_port": "dbg",
+      "target_node_id": "PANEL_example_debug",
+      "target_port": "0"
+    }
+  ]
+}

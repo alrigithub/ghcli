@@ -1,0 +1,183 @@
+{
+  "transactionId": "spiral-stair-top-surfaces-001",
+  "solveAfter": true,
+  "debugAfter": [
+    "spiral_stair_top_surfaces"
+  ],
+  "sliders": [
+    {
+      "node_id": "SLIDER_inner_radius",
+      "nickname": "Inner Radius",
+      "min": 0,
+      "max": 1000,
+      "value": 200,
+      "position": {
+        "x": 60,
+        "y": 80
+      }
+    },
+    {
+      "node_id": "SLIDER_outer_radius",
+      "nickname": "Outer Radius",
+      "min": 500,
+      "max": 6000,
+      "value": 3000,
+      "position": {
+        "x": 60,
+        "y": 140
+      }
+    },
+    {
+      "node_id": "SLIDER_level_height",
+      "nickname": "Level Height",
+      "min": 500,
+      "max": 6000,
+      "value": 2500,
+      "position": {
+        "x": 60,
+        "y": 200
+      }
+    },
+    {
+      "node_id": "SLIDER_tread_depth",
+      "nickname": "Tread Depth",
+      "min": 100,
+      "max": 600,
+      "value": 260,
+      "position": {
+        "x": 60,
+        "y": 260
+      }
+    },
+    {
+      "node_id": "SLIDER_comfort_target",
+      "nickname": "Comfort Target",
+      "min": 600,
+      "max": 650,
+      "value": 620,
+      "position": {
+        "x": 60,
+        "y": 320
+      }
+    }
+  ],
+  "pythonNodes": [
+    {
+      "node_id": "spiral_stair_top_surfaces",
+      "nickname": "Spiral Stair Top Surfaces",
+      "runtime": "cpython3",
+      "file_path": "C:/Users/ritiv/Desktop/gh-cli/cli-ghpython2/samples/spiral-stair-top-surfaces/script.py",
+      "position": {
+        "x": 390,
+        "y": 160
+      },
+      "inputs": [
+        {
+          "name": "inner_radius",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "outer_radius",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "level_height",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "tread_depth",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "comfort_target",
+          "typeName": "float",
+          "access": "item"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "tread_surfaces",
+          "typeName": "Brep",
+          "access": "list"
+        },
+        {
+          "name": "num_steps",
+          "typeName": "int",
+          "access": "item"
+        },
+        {
+          "name": "actual_riser",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "total_rotation_deg",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "comfort_check",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "dbg",
+          "typeName": "string",
+          "access": "item"
+        }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "node_id": "PANEL_spiral_stair_top_debug",
+      "nickname": "Spiral Stair Top Debug",
+      "position": {
+        "x": 790,
+        "y": 320
+      }
+    }
+  ],
+  "wires": [
+    {
+      "source_node_id": "SLIDER_inner_radius",
+      "source_port": "0",
+      "target_node_id": "spiral_stair_top_surfaces",
+      "target_port": "inner_radius"
+    },
+    {
+      "source_node_id": "SLIDER_outer_radius",
+      "source_port": "0",
+      "target_node_id": "spiral_stair_top_surfaces",
+      "target_port": "outer_radius"
+    },
+    {
+      "source_node_id": "SLIDER_level_height",
+      "source_port": "0",
+      "target_node_id": "spiral_stair_top_surfaces",
+      "target_port": "level_height"
+    },
+    {
+      "source_node_id": "SLIDER_tread_depth",
+      "source_port": "0",
+      "target_node_id": "spiral_stair_top_surfaces",
+      "target_port": "tread_depth"
+    },
+    {
+      "source_node_id": "SLIDER_comfort_target",
+      "source_port": "0",
+      "target_node_id": "spiral_stair_top_surfaces",
+      "target_port": "comfort_target"
+    },
+    {
+      "source_node_id": "spiral_stair_top_surfaces",
+      "source_port": "dbg",
+      "target_node_id": "PANEL_spiral_stair_top_debug",
+      "target_port": "0"
+    }
+  ]
+}

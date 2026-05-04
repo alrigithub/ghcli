@@ -1,0 +1,222 @@
+{
+  "transactionId": "parametric-spiral-stair-graph-001",
+  "solveAfter": true,
+  "debugAfter": [
+    "parametric_spiral_stair"
+  ],
+  "sliders": [
+    {
+      "node_id": "SLIDER_stair_steps",
+      "nickname": "Steps",
+      "min": 3,
+      "max": 36,
+      "value": 18,
+      "position": {
+        "x": 60,
+        "y": 360
+      }
+    },
+    {
+      "node_id": "SLIDER_stair_radius",
+      "nickname": "Radius",
+      "min": 1,
+      "max": 15,
+      "value": 5,
+      "position": {
+        "x": 60,
+        "y": 420
+      }
+    },
+    {
+      "node_id": "SLIDER_stair_height",
+      "nickname": "Height",
+      "min": 1,
+      "max": 20,
+      "value": 8,
+      "position": {
+        "x": 60,
+        "y": 480
+      }
+    },
+    {
+      "node_id": "SLIDER_stair_turns",
+      "nickname": "Turns",
+      "min": 0.25,
+      "max": 3,
+      "value": 1.35,
+      "position": {
+        "x": 60,
+        "y": 540
+      }
+    },
+    {
+      "node_id": "SLIDER_stair_tread_depth",
+      "nickname": "Tread Depth",
+      "min": 0.5,
+      "max": 4,
+      "value": 1.5,
+      "position": {
+        "x": 60,
+        "y": 600
+      }
+    },
+    {
+      "node_id": "SLIDER_stair_tread_width",
+      "nickname": "Tread Width",
+      "min": 0.5,
+      "max": 5,
+      "value": 2.2,
+      "position": {
+        "x": 60,
+        "y": 660
+      }
+    },
+    {
+      "node_id": "SLIDER_stair_thickness",
+      "nickname": "Thickness",
+      "min": 0.05,
+      "max": 1,
+      "value": 0.28,
+      "position": {
+        "x": 60,
+        "y": 720
+      }
+    }
+  ],
+  "pythonNodes": [
+    {
+      "node_id": "parametric_spiral_stair",
+      "nickname": "Parametric Spiral Stair",
+      "runtime": "cpython3",
+      "file_path": "C:/Users/ritiv/Desktop/gh-cli/cli-ghpython2/samples/parametric-spiral-stair/script.py",
+      "position": {
+        "x": 390,
+        "y": 470
+      },
+      "inputs": [
+        {
+          "name": "step_count",
+          "typeName": "int",
+          "access": "item"
+        },
+        {
+          "name": "radius",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "total_height",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "turns",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "tread_depth",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "tread_width",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "thickness",
+          "typeName": "float",
+          "access": "item"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "treads",
+          "typeName": "Brep",
+          "access": "list"
+        },
+        {
+          "name": "post_lines",
+          "typeName": "Curve",
+          "access": "list"
+        },
+        {
+          "name": "centerline",
+          "typeName": "Curve",
+          "access": "item"
+        },
+        {
+          "name": "handrail",
+          "typeName": "Curve",
+          "access": "item"
+        },
+        {
+          "name": "dbg",
+          "typeName": "string",
+          "access": "item"
+        }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "node_id": "PANEL_spiral_stair_debug",
+      "nickname": "Spiral Stair Debug",
+      "position": {
+        "x": 780,
+        "y": 650
+      }
+    }
+  ],
+  "wires": [
+    {
+      "source_node_id": "SLIDER_stair_steps",
+      "source_port": "0",
+      "target_node_id": "parametric_spiral_stair",
+      "target_port": "step_count"
+    },
+    {
+      "source_node_id": "SLIDER_stair_radius",
+      "source_port": "0",
+      "target_node_id": "parametric_spiral_stair",
+      "target_port": "radius"
+    },
+    {
+      "source_node_id": "SLIDER_stair_height",
+      "source_port": "0",
+      "target_node_id": "parametric_spiral_stair",
+      "target_port": "total_height"
+    },
+    {
+      "source_node_id": "SLIDER_stair_turns",
+      "source_port": "0",
+      "target_node_id": "parametric_spiral_stair",
+      "target_port": "turns"
+    },
+    {
+      "source_node_id": "SLIDER_stair_tread_depth",
+      "source_port": "0",
+      "target_node_id": "parametric_spiral_stair",
+      "target_port": "tread_depth"
+    },
+    {
+      "source_node_id": "SLIDER_stair_tread_width",
+      "source_port": "0",
+      "target_node_id": "parametric_spiral_stair",
+      "target_port": "tread_width"
+    },
+    {
+      "source_node_id": "SLIDER_stair_thickness",
+      "source_port": "0",
+      "target_node_id": "parametric_spiral_stair",
+      "target_port": "thickness"
+    },
+    {
+      "source_node_id": "parametric_spiral_stair",
+      "source_port": "dbg",
+      "target_node_id": "PANEL_spiral_stair_debug",
+      "target_port": "0"
+    }
+  ]
+}

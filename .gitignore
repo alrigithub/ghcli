@@ -1,0 +1,28 @@
+# Build outputs
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# IDE
+.vs/
+*.sln.docstates
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test outputs (generated during eval runs)
+examples/test_*/
+examples/eval_*/
+examples/test_baseline_*/
+
+# NuGet
+*.nupkg
+
+# Temp
+/tmp/

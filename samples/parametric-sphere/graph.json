@@ -1,0 +1,129 @@
+{
+  "transactionId": "parametric-sphere-graph-001",
+  "solveAfter": true,
+  "debugAfter": [
+    "parametric_sphere"
+  ],
+  "sliders": [
+    {
+      "node_id": "SLIDER_sphere_radius",
+      "nickname": "Radius",
+      "min": 1,
+      "max": 25,
+      "value": 6,
+      "position": {
+        "x": 60,
+        "y": 80
+      }
+    },
+    {
+      "node_id": "SLIDER_sphere_u_count",
+      "nickname": "U Count",
+      "min": 3,
+      "max": 36,
+      "value": 16,
+      "position": {
+        "x": 60,
+        "y": 140
+      }
+    },
+    {
+      "node_id": "SLIDER_sphere_v_count",
+      "nickname": "V Count",
+      "min": 2,
+      "max": 18,
+      "value": 8,
+      "position": {
+        "x": 60,
+        "y": 200
+      }
+    }
+  ],
+  "pythonNodes": [
+    {
+      "node_id": "parametric_sphere",
+      "nickname": "Parametric Sphere",
+      "runtime": "cpython3",
+      "file_path": "C:/Users/ritiv/Desktop/gh-cli/cli-ghpython2/samples/parametric-sphere/script.py",
+      "position": {
+        "x": 360,
+        "y": 110
+      },
+      "inputs": [
+        {
+          "name": "radius",
+          "typeName": "float",
+          "access": "item"
+        },
+        {
+          "name": "u_count",
+          "typeName": "int",
+          "access": "item"
+        },
+        {
+          "name": "v_count",
+          "typeName": "int",
+          "access": "item"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "sphere",
+          "typeName": "Brep",
+          "access": "item"
+        },
+        {
+          "name": "iso_curves",
+          "typeName": "Curve",
+          "access": "list"
+        },
+        {
+          "name": "pts",
+          "typeName": "Point3d",
+          "access": "list"
+        },
+        {
+          "name": "dbg",
+          "typeName": "string",
+          "access": "item"
+        }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "node_id": "PANEL_sphere_debug",
+      "nickname": "Sphere Debug",
+      "position": {
+        "x": 720,
+        "y": 220
+      }
+    }
+  ],
+  "wires": [
+    {
+      "source_node_id": "SLIDER_sphere_radius",
+      "source_port": "0",
+      "target_node_id": "parametric_sphere",
+      "target_port": "radius"
+    },
+    {
+      "source_node_id": "SLIDER_sphere_u_count",
+      "source_port": "0",
+      "target_node_id": "parametric_sphere",
+      "target_port": "u_count"
+    },
+    {
+      "source_node_id": "SLIDER_sphere_v_count",
+      "source_port": "0",
+      "target_node_id": "parametric_sphere",
+      "target_port": "v_count"
+    },
+    {
+      "source_node_id": "parametric_sphere",
+      "source_port": "dbg",
+      "target_node_id": "PANEL_sphere_debug",
+      "target_port": "0"
+    }
+  ]
+}

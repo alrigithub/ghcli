@@ -1,0 +1,69 @@
+{
+  "catalogVersion": 1,
+  "generatedAt": "2026-05-04T18:43:22.897742+00:00",
+  "source": "tracked-cache",
+  "componentCount": 900,
+  "pluginCount": 15,
+  "plugins": [
+    {
+      "name": "complex",
+      "componentCount": 3
+    },
+    {
+      "name": "curve",
+      "componentCount": 105
+    },
+    {
+      "name": "display",
+      "componentCount": 35
+    },
+    {
+      "name": "intersect",
+      "componentCount": 31
+    },
+    {
+      "name": "kangaroo2",
+      "componentCount": 98
+    },
+    {
+      "name": "maths",
+      "componentCount": 83
+    },
+    {
+      "name": "mesh",
+      "componentCount": 64
+    },
+    {
+      "name": "params",
+      "componentCount": 24
+    },
+    {
+      "name": "rhino",
+      "componentCount": 102
+    },
+    {
+      "name": "scalar",
+      "componentCount": 12
+    },
+    {
+      "name": "sets",
+      "componentCount": 87
+    },
+    {
+      "name": "surface",
+      "componentCount": 91
+    },
+    {
+      "name": "transform",
+      "componentCount": 53
+    },
+    {
+      "name": "uncategorized",
+      "componentCount": 39
+    },
+    {
+      "name": "vector",
+      "componentCount": 73
+    }
+  ]
+}

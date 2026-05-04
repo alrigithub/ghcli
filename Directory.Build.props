@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Rhino8SystemDir Condition="'$(Rhino8SystemDir)' == ''">C:\Program Files\Rhino 8\System</Rhino8SystemDir>
+    <Rhino8GrasshopperDir Condition="'$(Rhino8GrasshopperDir)' == ''">C:\Program Files\Rhino 8\Plug-ins\Grasshopper</Rhino8GrasshopperDir>
+  </PropertyGroup>
+</Project>

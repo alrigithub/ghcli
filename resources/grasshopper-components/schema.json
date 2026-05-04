@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GhCLI Grasshopper Component Catalog Record",
+  "type": "object",
+  "required": [
+    "id",
+    "plugin",
+    "category",
+    "name",
+    "display_name",
+    "description",
+    "inputs",
+    "outputs",
+    "source"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "plugin": { "type": "string" },
+    "category": { "type": "string" },
+    "subcategory": { "type": ["string", "null"] },
+    "name": { "type": "string" },
+    "display_name": { "type": "string" },
+    "description": { "type": "string" },
+    "inputs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/port" }
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/port" }
+    },
+    "ghpythonlib_name": { "type": ["string", "null"] },
+    "assembly": { "type": ["string", "null"] },
+    "component_guid": { "type": ["string", "null"] },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source": { "type": "string" }
+  },
+  "$defs": {
+    "port": {
+      "type": "object",
+      "required": ["name", "type", "description"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "optional": { "type": "boolean" },
+        "access": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
